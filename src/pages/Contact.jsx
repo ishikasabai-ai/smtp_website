@@ -22,7 +22,7 @@ const Contact = () => {
                                 <div>
                                     <h4 className="font-semibold text-slate-900">Email Us</h4>
                                     <p className="text-slate-600">support@smtppro.com</p>
-                                    <p className="text-slate-600">sales@smtppro.com</p>
+
                                 </div>
                             </div>
 
@@ -30,7 +30,7 @@ const Contact = () => {
                                 <Phone className="w-6 h-6 text-primary-600 mt-1 mr-4" />
                                 <div>
                                     <h4 className="font-semibold text-slate-900">Call Us</h4>
-                                    <p className="text-slate-600">+1 (555) 123-4567</p>
+                                    <p className="text-slate-600">16632684</p>
                                     <p className="text-slate-500 text-sm">Mon-Fri from 8am to 5pm EST</p>
                                 </div>
                             </div>
@@ -40,9 +40,7 @@ const Contact = () => {
                                 <div>
                                     <h4 className="font-semibold text-slate-900">Visit Us</h4>
                                     <p className="text-slate-600">
-                                        123 Tech Boulevard,<br />
-                                        Suite 400,<br />
-                                        San Francisco, CA 94107
+                                        PO Box 806, Cardiff, CF14 8LH
                                     </p>
                                 </div>
                             </div>

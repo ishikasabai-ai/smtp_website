@@ -66,10 +66,29 @@ const Home = () => {
             <section className="py-10 bg-white border-b border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">Trusted by innovative teams worldwide</p>
-                    <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
-                        {['Acme Corp', 'GlobalTech', 'Nebula', 'Circle Systems', 'FoxRun'].map((brand) => (
-                            <span key={brand} className="text-xl font-bold text-slate-800">{brand}</span>
-                        ))}
+                    <div className="relative overflow-hidden group">
+                        <div className="flex animate-scroll group-hover:pause whitespace-nowrap opacity-50 grayscale hover:opacity-100 transition-opacity duration-300">
+                            <div className="flex items-center gap-16 mx-8">
+                                {['Acme Corp', 'GlobalTech', 'Nebula', 'Circle Systems', 'FoxRun'].map((brand) => (
+                                    <span key={brand} className="text-xl font-bold text-slate-800">{brand}</span>
+                                ))}
+                            </div>
+                            {/* Duplicate for seamless scrolling */}
+                            <div className="flex items-center gap-16 mx-8">
+                                {['Acme Corp', 'GlobalTech', 'Nebula', 'Circle Systems', 'FoxRun'].map((brand) => (
+                                    <span key={`${brand}-duplicate`} className="text-xl font-bold text-slate-800">{brand}</span>
+                                ))}
+                            </div>
+                            {/* Triplicate for wider screens to ensure no gaps */}
+                            <div className="flex items-center gap-16 mx-8">
+                                {['Acme Corp', 'GlobalTech', 'Nebula', 'Circle Systems', 'FoxRun'].map((brand) => (
+                                    <span key={`${brand}-triplicate`} className="text-xl font-bold text-slate-800">{brand}</span>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Fade edges */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent"></div>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent"></div>
                     </div>
                 </div>
             </section>

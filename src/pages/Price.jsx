@@ -1,6 +1,8 @@
 import { Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Price = () => {
+    const navigate = useNavigate();
     const tiers = [
         {
             name: 'Starter',
@@ -57,7 +59,10 @@ const Price = () => {
                                 ))}
                             </ul>
 
-                            <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${tier.popular ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-900'}`}>
+                            <button
+                                onClick={() => navigate('/pricing-form', { state: { plan: tier.name } })}
+                                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${tier.popular ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-900'}`}
+                            >
                                 {tier.cta}
                             </button>
                         </div>

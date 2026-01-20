@@ -14,6 +14,7 @@ import Resources from './pages/Resources';
 import Documentation from './pages/Documentation';
 import Community from './pages/Community';
 import Cookies from './pages/Cookies';
+import PricingForm from './pages/PricingForm';
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/price" element={<Price />} />
+            <Route path="/pricing-form" element={<PricingForm />} />
             <Route path="/download" element={<Download />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
