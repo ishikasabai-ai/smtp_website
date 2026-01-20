@@ -21,7 +21,7 @@ const Contact = () => {
                                 <Mail className="w-6 h-6 text-primary-600 mt-1 mr-4" />
                                 <div>
                                     <h4 className="font-semibold text-slate-900">Email Us</h4>
-                                    <p className="text-slate-600">support@smtppro.com</p>
+                                    <p className="text-slate-600">support@smtpsecurepro.com</p>
 
                                 </div>
                             </div>

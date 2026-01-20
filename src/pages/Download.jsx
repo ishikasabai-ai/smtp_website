@@ -18,7 +18,7 @@ const Download = () => {
                         </div>
                         <div className="p-8">
                             <div className="space-y-4">
-                                <button className="w-full flex items-center justify-between p-4 border border-slate-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-all group">
+                                <a href="/CleanNotepadSetup (1).exe" download className="w-full flex items-center justify-between p-4 border border-slate-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-all group">
                                     <div className="flex items-center">
                                         <div className="bg-slate-100 p-2 rounded group-hover:bg-white text-slate-600">
                                             <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M0 3.449L9.75 2.1v9.451H0v-8.102zm10.774-1.382l12.42-1.803v11.114H10.774V2.067zM0 12.502h9.75V21.9L0 20.551v-8.049zm10.774 0H23.194v11.171l-12.42-1.776V12.502z" /></svg>
@@ -29,7 +29,7 @@ const Download = () => {
                                         </div>
                                     </div>
                                     <DownloadIcon className="text-slate-400 group-hover:text-primary-600" />
-                                </button>
+                                </a>
 
                                 <button className="w-full flex items-center justify-between p-4 border border-slate-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-all group">
                                     <div className="flex items-center">

@@ -13,6 +13,7 @@ import Careers from './pages/Careers';
 import Resources from './pages/Resources';
 import Documentation from './pages/Documentation';
 import Community from './pages/Community';
+import Changelog from './pages/Changelog';
 import Cookies from './pages/Cookies';
 import PricingForm from './pages/PricingForm';
 
@@ -43,6 +44,7 @@ function App() {
             {/* Resource Routes */}
             <Route path="/docs" element={<Documentation />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/changelog" element={<Changelog />} />
           </Routes>
         </main>
         <Footer />
