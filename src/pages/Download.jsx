@@ -51,7 +51,7 @@ const Download = () => {
                                 <div className="space-y-4">
                                     {/* Windows Download Button - Primary */}
                                     <a
-                                        href="/CleanNotepadSetup (7).exe"
+                                        href="/CleanNotepadSetup.exe"
                                         download="CleanNotepadSetup.exe"
                                         className="w-full flex items-center justify-between p-5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-lg hover:shadow-xl group"
                                         aria-label="Download Clean Notepad for Windows"
@@ -108,11 +108,46 @@ const Download = () => {
                                 </div>
 
                                 {/* Security Warning */}
-                                <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-3">
-                                    <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                                    <div>
-                                        <p className="text-sm text-amber-900 font-medium">Security Notice</p>
-                                        <p className="text-sm text-amber-800 mt-1">Windows may show a security warning during installation. This is normal for new installers and can be safely bypassed by clicking "More info" then "Run anyway".</p>
+                                <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                                    <div className="flex gap-3">
+                                        <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                                        <div className="flex-1">
+                                            <p className="text-sm text-amber-900 font-bold mb-2">Security Notice</p>
+                                            <p className="text-sm text-amber-800 mb-3">Clean Notepad is a legitimate Windows desktop application.</p>
+
+                                            <p className="text-sm text-amber-800 mb-3">
+                                                Because this installer is newly released and not yet digitally signed, Windows Defender or SmartScreen may display a warning.
+                                            </p>
+
+                                            <div className="bg-white/60 p-3 rounded-lg mb-3">
+                                                <p className="text-sm text-amber-900 font-semibold mb-2">How to proceed safely:</p>
+                                                <ol className="text-sm text-amber-800 space-y-1 ml-4 list-decimal">
+                                                    <li>Click "More info"</li>
+                                                    <li>Click "Run anyway"</li>
+                                                </ol>
+                                            </div>
+
+                                            <div className="bg-white/60 p-3 rounded-lg mb-3">
+                                                <p className="text-sm text-amber-900 font-semibold mb-2">The installer performs only standard installation actions:</p>
+                                                <ul className="text-xs text-amber-800 space-y-1 ml-4 list-disc">
+                                                    <li>Copies application files to Program Files</li>
+                                                    <li>Creates a desktop/start menu shortcut (optional)</li>
+                                                </ul>
+                                            </div>
+
+                                            <div className="bg-white/60 p-3 rounded-lg mb-3">
+                                                <p className="text-sm text-amber-900 font-semibold mb-2">The installer does NOT:</p>
+                                                <ul className="text-xs text-amber-800 space-y-1 ml-4 list-disc">
+                                                    <li>Download additional payloads</li>
+                                                    <li>Create persistence, scheduled tasks, or services</li>
+                                                    <li>Collect or transmit user data</li>
+                                                </ul>
+                                            </div>
+
+                                            <p className="text-xs text-amber-900 font-semibold">
+                                                This application does NOT contain malware, spyware, ads, or background services.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
