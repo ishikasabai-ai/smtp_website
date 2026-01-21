@@ -16,6 +16,8 @@ import Community from './pages/Community';
 import Changelog from './pages/Changelog';
 import Cookies from './pages/Cookies';
 import PricingForm from './pages/PricingForm';
+import Success from './pages/Success';
+import Cancel from './pages/Cancel';
 
 
 
@@ -45,6 +47,10 @@ function App() {
             <Route path="/docs" element={<Documentation />} />
             <Route path="/community" element={<Community />} />
             <Route path="/changelog" element={<Changelog />} />
+
+            {/* Payment Routes */}
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
           </Routes>
         </main>
         <Footer />

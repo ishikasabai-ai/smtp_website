@@ -1,17 +1,64 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 const PricingForm = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const selectedPlan = location.state?.plan || 'Starter'; // Default to Starter if accessed directly
+    const selectedPlan = location.state?.plan || 'Professional'; // Default to Professional for demo
+    const [isProcessing, setIsProcessing] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // In a real app, you would handle form submission here
-        console.log('Form submitted for plan:', selectedPlan);
-        alert('Thank you for your interest! We will contact you shortly.');
-        navigate('/');
+
+        let amount = 0;
+        if (selectedPlan === 'Professional') amount = 4900;
+        // Starter is free, Enterprise is custom - simplified for this flow
+
+        if (amount === 0) {
+            alert(`You have selected the ${selectedPlan} plan. This plan does not require immediate payment. We will contact you.`);
+            navigate('/');
+            return;
+        }
+
+        setIsProcessing(true);
+
+        try {
+            const response = await fetch("http://localhost:4242/create-checkout-session", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    productName: `${selectedPlan} Plan`,
+                    amount: amount
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ error: 'Server error' }));
+                throw new Error(errorData.error || `Server returned ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.url) {
+                // Redirect to Stripe Checkout
+                window.location.href = data.url;
+            } else {
+                throw new Error("No checkout URL returned from server");
+            }
+        } catch (error) {
+            console.error("Payment error:", error);
+            setIsProcessing(false);
+
+            // More helpful error message
+            let errorMessage = "Payment initialization failed. ";
+            if (error.message.includes('Failed to fetch')) {
+                errorMessage += "Cannot connect to payment server. Make sure the backend is running on port 4242.";
+            } else {
+                errorMessage += error.message;
+            }
+
+            alert(errorMessage);
+        }
     };
 
     return (
@@ -60,8 +107,20 @@ const PricingForm = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-2 mt-4">
-                            Confirm & Get Started <Send className="w-4 h-4" />
+                        <button
+                            type="submit"
+                            disabled={isProcessing}
+                            className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-2 mt-4"
+                        >
+                            {isProcessing ? (
+                                <>
+                                    Processing... <Loader2 className="w-4 h-4 animate-spin" />
+                                </>
+                            ) : (
+                                <>
+                                    {selectedPlan === 'Professional' ? 'Proceed to Payment' : 'Confirm & Get Started'} <Send className="w-4 h-4" />
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
